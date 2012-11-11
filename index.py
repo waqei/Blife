@@ -1,25 +1,26 @@
 #encoding=utf-8
-import web
 
-#urls
+import web
+import sae
 from web.template import render
 
+#urls
 urls=(
 		'/','index'
+		'categories','catego'
 )
 
-#application
-#app = web.application(urls, globals())
 
 #templates
-index = web.template.frender('index/index.html')
+render = web.template.render('index/')
 #admin = web.template.frender('admin/admin.html')
-name="hello"
 
 class index:
     def GET(self):
-        return render.index(None)
-
+        return render.index()
+class catego:
+	def GET(self):
+		return render.categories()
 
 if __name__ == "__main__":
     app = web.application(urls,globals())
